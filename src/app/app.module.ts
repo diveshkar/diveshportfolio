@@ -7,20 +7,25 @@ import { HomeSectionComponent } from './home-section/home-section.component';
 import { AboutSectionComponent } from './about-section/about-section.component';
 import { FormsModule } from '@angular/forms';
 import { ContactSectionComponent } from './contact-section/contact-section.component';
+import { MessageService } from './message.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeSectionComponent,
     AboutSectionComponent,
-    ContactSectionComponent
+    ContactSectionComponent,
+  
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule
   ],
+  providers: [MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

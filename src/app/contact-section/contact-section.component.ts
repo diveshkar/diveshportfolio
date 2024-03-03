@@ -18,43 +18,38 @@ export class ContactSectionComponent {
     messagetitle: '',
     message: ''
   };
+  errorMessage: string = '';
 
-  // constructor(
-  //   private http: HttpClient,
-  //   private messageService: MessageService,
-  //   private router: Router
-  // ) {}
+  constructor(
+    private router: Router,
+    private messageService: MessageService
+  ) {}
 
   onSubmit() {
     console.log(this.formDataObject);
-    // if (
-    //   this.formDataObject.name === '' ||
-    //   this.formDataObject.phone === '' ||
-    //   this.formDataObject.email === '' ||
-    //   this.formDataObject.messagetitle === '' ||
-    //   this.formDataObject.message === ''
-    // ) {
-    //   console.log('Please fill in all the fields', 'error');
-    // } else {
-    //   // Append other form fields to the FormData
-    //   this.formData.append('name', this.formDataObject.name);
-    //   this.formData.append('phone', this.formDataObject.phone);
-    //   this.formData.append('email', this.formDataObject.email);
-    //   this.formData.append('messagetitle', this.formDataObject.messagetitle);
-    //   this.formData.append('message', this.formDataObject.message);
+    this.errorMessage = ''; // Reset error message
 
-    //   // Make sure you are not setting 'Content-Type: application/json'
-    //   this.messageService.sendMessage(this.formData).subscribe({
-    //     next: (response) => {
-    //       console.log('Message Sent Successfully', 'success');
-    //       setTimeout(() => {
-    //         this.router.navigate(['/']);
-    //       }, 3000);
-    //     },
-    //     error: (error) => {
-    //       console.log('Error while sending message', 'error');
-    //     }
-    //   });
-    // }
+    if (
+      this.formDataObject.name === '' ||
+      this.formDataObject.phone === '' ||
+      this.formDataObject.email === '' ||
+      this.formDataObject.messagetitle === '' ||
+      this.formDataObject.message === ''
+    ) {
+      this.errorMessage = 'Please fill in all the fields';
+    } else {
+      this.messageService.sendMessage(this.formDataObject).subscribe({
+        next: (response) => {
+          console.log('Message Sent Successfully', 'success');
+          setTimeout(() => {
+            this.router.navigate(['/']);
+          }, 3000);
+        },
+        error: (error) => {
+          console.error('Error while sending message', error);
+          this.errorMessage = 'Error while sending the message. Please try again.';
+        }
+      });
+    }
   }
 }

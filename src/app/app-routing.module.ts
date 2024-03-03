@@ -5,9 +5,10 @@ import { AboutSectionComponent } from './about-section/about-section.component';
 import { ContactSectionComponent } from './contact-section/contact-section.component';
 
 const routes: Routes = [
-  { path: '', component: HomeSectionComponent },
-  { path: 'about', component: AboutSectionComponent },
-  { path: 'contact', component: ContactSectionComponent },
+  // { path: 'home', component: HomeSectionComponent },
+  // { path: 'about', component: AboutSectionComponent },
+  // { path: 'contact', component: ContactSectionComponent },
+
 ];
 
 @NgModule({
