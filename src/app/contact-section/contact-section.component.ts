@@ -11,7 +11,6 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class ContactSectionComponent {
 
-  formData = new FormData();
   formDataObject = {
     name: '',
     phone: '',
@@ -42,10 +41,10 @@ export class ContactSectionComponent {
     } else {
       this.messageService.sendMessage(this.formDataObject).subscribe({
         next: (response) => {
-          this.showSnackBar('Message sent success fully', 'Thanks for sending');
+          this.showSnackBar('Message sent successfully', 'success');
           setTimeout(() => {
             this.router.navigate(['/']);
-          }, 3000);
+          }, 5000);
         },
         error: (error) => {
           console.error('Error while sending message', error);
@@ -57,7 +56,7 @@ export class ContactSectionComponent {
 
   showSnackBar(message: string, panelClass: string): void {
     this._snackBar.open(message, 'Close', {
-      duration: 3000,
+      duration: 5000,
       panelClass: [panelClass],
     });
   }
