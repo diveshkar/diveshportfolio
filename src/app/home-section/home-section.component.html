@@ -3,15 +3,15 @@
         <div class="flex">
             <a class="text-3xl font-bold pr-5 border-r border-teal-300 mr-5" routerLinkActive="active">Diveshkar</a>
                 <div class="my-auto">
-                    <button class="lg:hidden">
+                    <!-- <button class="md:hidden">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5" />
                           </svg>                          
-                    </button>
-                    <ul class="lg:flex font-bold text-gray-600 hidden">
-                        <li class="pr-5 "><a class="px-3 py-2 border border-teal-100 hover:border-teal-300 rounded">Home</a></li>
+                    </button> -->
+                    <ul class="md:flex font-bold text-gray-600 hidden">
+                        <li class="pr-5 "><a (click)="scrollHome()" class="px-3 py-2 border border-teal-100 hover:border-teal-300 rounded">Home</a></li>
                         <li class="pr-5 "><a  (click)="scroll()" class="px-3 py-2 border border-teal-100 hover:border-teal-300 rounded ">About</a></li>
-                        <li class="pr-5 "><a class="px-3 py-2 border border-teal-100 hover:border-teal-300 rounded ">Contact</a></li>
+                        <li class="pr-5 "><a (click)="scrollContact()" class="px-3 py-2 border border-teal-100 hover:border-teal-300 rounded ">Contact</a></li>
                     </ul>
                 </div>
         <a href="https://www.linkedin.com/in/diveshkar-sathiyananthadevar-221970225/" class="flex ml-auto text-medium transition-transform hover:scale-150 lg:hover:scale-105 lg:bg-sky-700 text-white px-3 py-3 rounded font-bold "><span class="px-1 hidden lg:block ">Linkedin </span><svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 lg:hidden" viewBox="0 0 48 48">
@@ -40,14 +40,16 @@
                 </p>
                 <div class="flex justify-center md:justify-start mt-4 px-3 py-2">
                     <a (click)="scroll()" class="mr-5 text-large bg-teal-600 text-white px-3 py-2 rounded-2xl hover:bg-white hover:text-teal-600">About</a>
-                    <a class="mr-5 text-large bg-teal-600 text-white px-3 py-2 rounded-2xl hover:bg-white hover:text-teal-600">Contact</a>
+                    <a (click)="scrollContact()" class="mr-5 text-large bg-teal-600 text-white px-3 py-2 rounded-2xl hover:bg-white hover:text-teal-600">Contact</a>
                 </div>
             </div>
         </div>
         <div class="flex justify-center pr-7 md:pr-0">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 5.25 7.5 7.5 7.5-7.5m-15 6 7.5 7.5 7.5-7.5" />
-              </svg>            
+            <a (click)="scroll()">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 5.25 7.5 7.5 7.5-7.5m-15 6 7.5 7.5 7.5-7.5" />
+                  </svg> 
+            </a>           
         </div>
     </div>
 </section>

@@ -10,7 +10,18 @@ export class HomeSectionComponent {
 
   scroll() {
     // You can adjust the scroll behavior based on your requirements
-    const yOffset = 700;
+    const yOffset = 600;
+    window.scrollTo({ top: yOffset, behavior: 'smooth' });
+  }
+
+  scrollContact() {
+    // You can adjust the scroll behavior based on your requirements
+    const yOffset = 2500;
+    window.scrollTo({ top: yOffset, behavior:'smooth' });
+  }
+  scrollHome() {
+    // You can adjust the scroll behavior based on your requirements
+    const yOffset = 5;
     window.scrollTo({ top: yOffset, behavior: 'smooth' });
   }
 }

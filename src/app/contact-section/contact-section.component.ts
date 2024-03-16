@@ -1,7 +1,8 @@
-import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { MessageService } from '../message.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
 
 @Component({
   selector: 'app-contact-section',
@@ -22,7 +23,8 @@ export class ContactSectionComponent {
 
   constructor(
     private router: Router,
-    private messageService: MessageService
+    private messageService: MessageService,
+    private _snackBar: MatSnackBar,
   ) {}
 
   onSubmit() {
@@ -36,11 +38,11 @@ export class ContactSectionComponent {
       this.formDataObject.messagetitle === '' ||
       this.formDataObject.message === ''
     ) {
-      this.errorMessage = 'Please fill in all the fields';
+      this.showSnackBar('Please fill in all the fields', 'error');
     } else {
       this.messageService.sendMessage(this.formDataObject).subscribe({
         next: (response) => {
-          console.log('Message Sent Successfully', 'success');
+          this.showSnackBar('Message sent success fully', 'Thanks for sending');
           setTimeout(() => {
             this.router.navigate(['/']);
           }, 3000);
@@ -51,5 +53,12 @@ export class ContactSectionComponent {
         }
       });
     }
+  }
+
+  showSnackBar(message: string, panelClass: string): void {
+    this._snackBar.open(message, 'Close', {
+      duration: 3000,
+      panelClass: [panelClass],
+    });
   }
 }

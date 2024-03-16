@@ -9,6 +9,8 @@ import { FormsModule } from '@angular/forms';
 import { ContactSectionComponent } from './contact-section/contact-section.component';
 import { MessageService } from './message.service';
 import { HttpClientModule } from '@angular/common/http';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -23,9 +25,10 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSnackBarModule
   ],
-  providers: [MessageService],
+  providers: [MessageService, provideAnimationsAsync()],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
